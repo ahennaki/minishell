@@ -1,0 +1,61 @@
+Display a prompt when waiting for a new command:
+
+	Use the printf function to display a prompt (e.g., "$ ") to indicate the shell is ready to accept a command.
+	You can display the prompt after each command or within a loop to continuously wait for user input.
+
+Working history:
+
+	Utilize a data structure, such as a linked list or an array, to store the command history.
+	Capture user commands and store them in the history data structure.
+	Implement features like command history navigation (e.g., using arrow keys) to access previous commands.
+
+Search and launch the right executable:
+
+	Parse the user's command to identify the executable name and arguments.
+	Use the execve function to search for the executable in directories specified by the PATH environment variable.
+	Alternatively, handle relative or absolute paths by checking if the file exists and launching it.
+
+Avoid interpreting unclosed quotes or unnecessary special characters:
+
+	Implement parsing logic to handle quotes (' and ") and special characters only when necessary.
+	Ignore or treat unclosed quotes as regular characters.
+	Ignore unnecessary special characters like backslashes () or semicolons (;) unless required for redirection or other features.
+
+Handle quotes:
+
+	Implement parsing logic to handle quotes, preserving the quoted sequences as arguments.
+	Single quotes (' ') should prevent interpretation of metacharacters within the quoted sequence.
+	Double quotes (" ") should prevent interpretation of metacharacters except for the dollar sign ($).
+
+Implement redirections:
+
+	Implement logic to handle input and output redirection using the <, >, <<, and >> symbols.
+	For input redirection (<), use open to redirect the input stream from a file.
+	For output redirection (> and >>), use open with appropriate flags to redirect the output stream to a file in write or append mode.
+	Implement logic to handle here documents (<<), reading input until a line containing the specified delimiter is encountered.
+
+Implement pipes:
+
+	Use the pipe function to create a pipe for inter-process communication.
+	Fork multiple child processes, connecting the output of one process to the input of the next using the pipe.
+	Each child process should execute a separate command in the pipeline.
+
+Handle environment variables:
+
+	Implement logic to identify and expand environment variables (e.g., strings starting with $).
+	Use the getenv function to retrieve the value of an environment variable and replace it in the command.
+
+Handle $? for exit status:
+
+	Keep track of the exit status of the most recently executed foreground pipeline.
+	Substitute $? in subsequent commands with the recorded exit status.
+
+Handle signals:
+
+	Use the signal or sigaction functions to handle signals like SIGINT (ctrl-C), SIGQUIT (ctrl-), and SIGTERM (ctrl-D).
+	Implement signal handlers to provide the desired behavior for each signal.
+
+Implement built-in commands:
+
+	Implement functions for each built-in command (e.g., echo, cd, pwd, export, unset, env, exit).
+	Use external functions like chdir, getcwd, setenv, unsetenv, and execve to perform
