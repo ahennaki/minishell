@@ -6,7 +6,7 @@
 #    By: aennaki <aennaki@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/10 23:10:40 by aennaki           #+#    #+#              #
-#    Updated: 2023/06/10 23:16:27 by aennaki          ###   ########.fr        #
+#    Updated: 2023/07/02 13:30:31 by aennaki          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ RM = rm -rf
 
 all : $(NAME)
 
-%.o : %.c minishell.h
+%.o : %.c headers/minishell.h
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 $(NAME) : $(OBJ)

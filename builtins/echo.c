@@ -1,28 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_env.c                                         :+:      :+:    :+:   */
+/*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aennaki <aennaki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/11 01:23:27 by aennaki           #+#    #+#             */
-/*   Updated: 2023/07/03 11:41:47 by aennaki          ###   ########.fr       */
+/*   Created: 2023/06/19 01:31:27 by aennaki           #+#    #+#             */
+/*   Updated: 2023/07/04 13:04:49 by aennaki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "headers/minishell.h"
+#include "../headers/minishell.h"
 
-void	init_env(char **env, t_env	*envir)
+bool	ft_option(char *str)
 {
 	size_t	i;
 
-	if (!env || !*env)
-		return ;
-	envir = NULL;
-	while (*env)
+	i = 0;
+	if (str[i] == '-')
 	{
-		i = ft_strichr(*env, '=');
-		ft_lstadd_back(&envir, ft_lstnew(*env, i));
-		env++;
+		i++;
+		while (str[i] && str[i] == 'n')
+			i++;
 	}
+	if (str[i])
+		return (0);
+	return (1);
+}
+
+void	echo_command(char **str)
+{
+	size_t	i;
+
+	i = 1;
+	while (str[i] && ft_option(str[i]))
+		i++;
+	while (str[i])
+	{
+		printf("%s", str[i++]);
+		if (str[i])
+			printf(" ");
+	}
+	if (!ft_option(str[1]))
+		printf("\n");
 }
