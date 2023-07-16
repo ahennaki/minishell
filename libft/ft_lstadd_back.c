@@ -6,7 +6,7 @@
 /*   By: aennaki <aennaki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 16:28:50 by aennaki           #+#    #+#             */
-/*   Updated: 2023/07/02 13:31:15 by aennaki          ###   ########.fr       */
+/*   Updated: 2023/07/16 02:14:16 by aennaki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,21 @@ void	ft_lstadd_back(t_env **lst, t_env *new)
 		*lst = new;
 	else
 		(ft_lstlast(*lst))->next = new;
+}
+
+void	ft_add_data(t_data **data, t_data *new)
+{
+	t_data	*head;
+
+	if (!new)
+		return ;
+	head = *data;
+	while (*data)
+	{
+		if (!(*data)->next)
+			break ;
+		*data = (*data)->next;
+	}
+	(*data)->next = new;
+	*data = head;
 }

@@ -6,7 +6,7 @@
 /*   By: aennaki <aennaki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 14:09:14 by aennaki           #+#    #+#             */
-/*   Updated: 2023/07/12 15:17:22 by aennaki          ###   ########.fr       */
+/*   Updated: 2023/07/16 06:59:33 by aennaki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 # include <stdbool.h>
 
 typedef struct s_data
@@ -24,11 +25,13 @@ typedef struct s_data
 	struct s_data		*next;
 }						t_data;
 
+t_data	*ft_datanew(void);
+
 int		ft_memcmp(const void *str1, const void *str2, size_t n);
 int		check_quotes(t_data *data, char *str, int i, int c);
-int		ft_strichr(const char *str, char c);
 int		ft_atoi(const char *str);
 
+size_t	ft_strichr(const char *str, char c);
 size_t	ft_strlen(const char *str);
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);
@@ -39,7 +42,8 @@ char	**ft_split(char const *s, char c);
 char	*ft_strdup(const char *str);
 char	*ft_itoa(int n);
 
-void	*ft_newdata(t_data	*data, char *cmd, int flag);
+void	ft_add_data(t_data **data, t_data *new);
+void	ft_initdata(t_data	*data, char *cmd, int flag);
 void	*ft_calloc(size_t n, size_t size);
 
 bool	is_wspace(char c);

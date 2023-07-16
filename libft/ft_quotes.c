@@ -6,7 +6,7 @@
 /*   By: aennaki <aennaki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 13:30:19 by aennaki           #+#    #+#             */
-/*   Updated: 2023/07/12 14:37:38 by aennaki          ###   ########.fr       */
+/*   Updated: 2023/07/16 05:54:56 by aennaki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int	check_quotes(t_data *data, char *str, int i, int c)
 		return (-1);
 	}
 	string = ft_substr(str, j, i - j);
-	ft_newdata(data, string, c);
+	ft_initdata(data, string, c);
 	return (i);
 }

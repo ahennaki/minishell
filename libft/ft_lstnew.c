@@ -6,7 +6,7 @@
 /*   By: aennaki <aennaki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 18:41:10 by aennaki           #+#    #+#             */
-/*   Updated: 2023/07/12 14:27:59 by aennaki          ###   ########.fr       */
+/*   Updated: 2023/07/16 07:12:58 by aennaki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,38 @@ t_env	*ft_lstnew(char *env, int i)
 	return (lst);
 }
 
-void	*ft_newdata(t_data	*data, char *cmd, int flag)
+t_data	*ft_datanew(void)
+{
+	t_data	*lst;
+
+	lst = malloc(sizeof(t_data));
+	if (!lst)
+		return (NULL);
+	lst->cmd = NULL;
+	lst->flag = 0;
+	lst->next = NULL;
+	return (lst);
+}
+
+void	ft_initdata(t_data *data, char *comd, int flag)
 {
 	int		i;
 
 	i = 0;
-	while ((data->cmd)[i])
+	puts("dd");
+	if (!data->cmd)
+	{
+		printf("l");
+		(data->cmd)[0] = ft_strdup(comd);
+		printf("l");
+		(data->cmd)[1] = 0;
+		return ;
+	}
+	printf("l");
+	while (data->cmd[i])
 		i++;
-	(data->cmd)[i] = ft_strdup(cmd);
-	(data->cmd)[i + 1] = 0;
+	data->cmd[i] = ft_strdup(comd);
+	data->cmd[i + 1] = 0;
 	data->flag = flag;
+	data->next = NULL;
 }

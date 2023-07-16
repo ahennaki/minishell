@@ -6,7 +6,7 @@
 /*   By: aennaki <aennaki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 17:54:58 by aennaki           #+#    #+#             */
-/*   Updated: 2023/07/12 12:11:40 by aennaki          ###   ########.fr       */
+/*   Updated: 2023/07/16 05:57:15 by aennaki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef enum e_token
 // void	cd_command(char **arg);
 // void	pwd_command(void);
 void	init_env(char **env, t_env	*envir);
+
+t_data	*parsing(char *command);
 
 // builtins
 char	*search_env(char *str, t_env *env);
