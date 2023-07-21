@@ -6,7 +6,7 @@
 /*   By: aennaki <aennaki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 18:41:10 by aennaki           #+#    #+#             */
-/*   Updated: 2023/07/16 07:12:58 by aennaki          ###   ########.fr       */
+/*   Updated: 2023/07/20 07:13:27 by aennaki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,38 +25,39 @@ t_env	*ft_lstnew(char *env, int i)
 	return (lst);
 }
 
-t_data	*ft_datanew(void)
+t_data	*ft_datanew(char *cmd, t_token tok)
 {
-	t_data	*lst;
+	t_data	*data;
 
-	lst = malloc(sizeof(t_data));
-	if (!lst)
+	data = malloc(sizeof(t_data));
+	if (!data)
 		return (NULL);
-	lst->cmd = NULL;
-	lst->flag = 0;
-	lst->next = NULL;
-	return (lst);
-}
-
-void	ft_initdata(t_data *data, char *comd, int flag)
-{
-	int		i;
-
-	i = 0;
-	puts("dd");
-	if (!data->cmd)
-	{
-		printf("l");
-		(data->cmd)[0] = ft_strdup(comd);
-		printf("l");
-		(data->cmd)[1] = 0;
-		return ;
-	}
-	printf("l");
-	while (data->cmd[i])
-		i++;
-	data->cmd[i] = ft_strdup(comd);
-	data->cmd[i + 1] = 0;
-	data->flag = flag;
+	data->cmd = cmd;
+	data->tok = tok;
 	data->next = NULL;
+	return (data);
 }
+
+// void	ft_initdata(t_data *data, char *comd, int flag)
+// {
+// 	int		i;
+
+// 	i = 0;
+// 	puts("dd");
+// 	*(data->cmd) = ft_strdup("");
+// 	if (!(data->cmd))
+// 	{
+// 		printf("l");
+// 		*(data->cmd) = ft_strdup(comd);
+// 		printf("l");
+// 		*(data->cmd) = 0;
+// 		return ;
+// 	}
+// 	printf("l");
+// 	while (data->cmd)
+// 		i++;
+// 	// data->cmd = ft_strdup(comd);
+// 	// data->cmd = 0;
+// 	data->flag = flag;
+// 	data->next = NULL;
+// }

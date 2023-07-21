@@ -6,7 +6,7 @@
 /*   By: aennaki <aennaki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 16:28:50 by aennaki           #+#    #+#             */
-/*   Updated: 2023/07/16 02:14:16 by aennaki          ###   ########.fr       */
+/*   Updated: 2023/07/17 01:17:40 by aennaki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@ void	ft_add_data(t_data **data, t_data *new)
 
 	if (!new)
 		return ;
+	if (!*data)
+	{
+		*data = new;
+		return ;
+	}
 	head = *data;
 	while (*data)
 	{

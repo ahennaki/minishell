@@ -6,7 +6,7 @@
 /*   By: aennaki <aennaki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 14:09:14 by aennaki           #+#    #+#             */
-/*   Updated: 2023/07/16 06:59:33 by aennaki          ###   ########.fr       */
+/*   Updated: 2023/07/20 10:01:46 by aennaki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,28 @@
 # include <stdio.h>
 # include <stdbool.h>
 
+typedef enum e_token
+{
+	NONE,
+	HERDOC,
+	APEND,
+	IN,
+	OUT,
+	PIPE,
+	D_QUOTES,
+	S_QUOTES,
+	SPACE,
+	END
+}	t_token;
+
 typedef struct s_data
 {
-	char				**cmd;
-	int					flag;
+	char				*cmd;
+	t_token				tok;
 	struct s_data		*next;
 }						t_data;
 
-t_data	*ft_datanew(void);
+t_data	*ft_datanew(char *cmd, t_token tok);
 
 int		ft_memcmp(const void *str1, const void *str2, size_t n);
 int		check_quotes(t_data *data, char *str, int i, int c);
@@ -42,8 +56,8 @@ char	**ft_split(char const *s, char c);
 char	*ft_strdup(const char *str);
 char	*ft_itoa(int n);
 
+void	*ft_memset(void *ptr, int c, size_t len);
 void	ft_add_data(t_data **data, t_data *new);
-void	ft_initdata(t_data	*data, char *cmd, int flag);
 void	*ft_calloc(size_t n, size_t size);
 
 bool	is_wspace(char c);

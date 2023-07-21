@@ -6,7 +6,7 @@
 /*   By: aennaki <aennaki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 20:44:21 by aennaki           #+#    #+#             */
-/*   Updated: 2023/07/16 06:08:03 by aennaki          ###   ########.fr       */
+/*   Updated: 2023/07/20 09:40:34 by aennaki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ t_token	init_token(char c1, char c2)
 	if (!c1)
 		return (END);
 	if (c1 == '<' && c2 == '<')
-		return (HDC);
+		return (HERDOC);
 	if (c1 == '>' && c2 == '>')
-		return (APD);
+		return (APEND);
 	if (c1 == '|')
 		return (PIPE);
 	if (c1 == '<')

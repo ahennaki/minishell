@@ -6,7 +6,7 @@
 /*   By: aennaki <aennaki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 17:54:58 by aennaki           #+#    #+#             */
-/*   Updated: 2023/07/16 05:57:15 by aennaki          ###   ########.fr       */
+/*   Updated: 2023/07/20 07:57:35 by aennaki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,6 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 # include "libft.h"
-
-typedef enum e_token
-{
-	NONE,
-	HDC,
-	APD,
-	PIPE,
-	IN,
-	OUT,
-	END
-}	t_token;
 
 // void	echo_command(char **arg);
 // void	cd_command(char **arg);
