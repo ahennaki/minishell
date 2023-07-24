@@ -6,7 +6,7 @@
 /*   By: aennaki <aennaki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 17:56:59 by aennaki           #+#    #+#             */
-/*   Updated: 2023/07/20 07:58:00 by aennaki          ###   ########.fr       */
+/*   Updated: 2023/07/24 23:47:36 by aennaki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,12 @@ int	main(int ac, char **av, char **env)
 		command = readline("minishell> ");
 		if (!command)
 			break ;
-		data = parsing(command);
+		data = lexer(command);
 		while (data)
 		{
 			printf("- %s\n", data->cmd);
 			printf("tok %d\n", data->tok);
+			printf("-------------------\n");
 			data = data->next;
 		}
 		add_history(command);

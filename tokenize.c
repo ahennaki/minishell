@@ -6,27 +6,17 @@
 /*   By: aennaki <aennaki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 20:44:21 by aennaki           #+#    #+#             */
-/*   Updated: 2023/07/20 09:40:34 by aennaki          ###   ########.fr       */
+/*   Updated: 2023/07/22 01:57:44 by aennaki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "headers/minishell.h"
 
-t_token	init_token(char c1, char c2)
+bool	is_token(t_token tok)
 {
-	if (!c1)
-		return (END);
-	if (c1 == '<' && c2 == '<')
-		return (HERDOC);
-	if (c1 == '>' && c2 == '>')
-		return (APEND);
-	if (c1 == '|')
-		return (PIPE);
-	if (c1 == '<')
-		return (IN);
-	if (c1 == '>')
-		return (OUT);
-	return (NONE);
+	return (tok == HERDOC || tok == APPEND || tok == IN
+		|| tok == OUT || tok == D_QUOTES || tok == S_QUOTES
+		|| tok == SPACE);
 }
 
 // bool	check_token(char *str, size_t j)
@@ -38,6 +28,5 @@ t_token	init_token(char c1, char c2)
 // 	while (str[i])
 // 	{
 // 		tok = init_token(str[i], str[i + 1]);
-		
 // 	}
 // }

@@ -6,7 +6,7 @@
 /*   By: aennaki <aennaki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 17:54:58 by aennaki           #+#    #+#             */
-/*   Updated: 2023/07/20 07:57:35 by aennaki          ###   ########.fr       */
+/*   Updated: 2023/07/24 23:45:37 by aennaki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 // void	pwd_command(void);
 void	init_env(char **env, t_env	*envir);
 
-t_data	*parsing(char *command);
+t_data	*lexer(char *command);
 
 // builtins
 char	*search_env(char *str, t_env *env);

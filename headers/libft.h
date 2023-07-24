@@ -6,7 +6,7 @@
 /*   By: aennaki <aennaki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 14:09:14 by aennaki           #+#    #+#             */
-/*   Updated: 2023/07/20 10:01:46 by aennaki          ###   ########.fr       */
+/*   Updated: 2023/07/22 01:03:58 by aennaki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef enum e_token
 {
 	NONE,
 	HERDOC,
-	APEND,
+	APPEND,
 	IN,
 	OUT,
 	PIPE,

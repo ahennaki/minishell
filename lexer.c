@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   lexer.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aennaki <aennaki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 20:44:39 by aennaki           #+#    #+#             */
-/*   Updated: 2023/07/20 10:03:15 by aennaki          ###   ########.fr       */
+/*   Updated: 2023/07/24 23:44:20 by aennaki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	handel_redir(t_data *data, char *str, size_t *i)
 	{
 		if (str[*i + 1] == 62)
 		{
-			ft_add_data(&data, ft_datanew(ft_substr(str, *i, 2), APEND));
+			ft_add_data(&data, ft_datanew(ft_substr(str, *i, 2), APPEND));
 			(*i)++;
 		}
 		else
@@ -105,7 +105,7 @@ void	init_data(t_data *data, char *str, size_t i)
 	}
 }
 
-t_data	*parsing(char *command)
+t_data	*lexer(char *command)
 {
 	t_data	*data;
 	char	*str;
